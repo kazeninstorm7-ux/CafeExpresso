@@ -56,7 +56,6 @@ O sistema impede mudanças de status fora dessa ordem, garantindo consistência 
     • Scanner (entrada de dados via teclado)
 
 **Como Executar**
-
     1. Compile os arquivos:
 javac *.java
     2. Execute o sistema:
