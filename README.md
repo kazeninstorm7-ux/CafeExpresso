@@ -1,10 +1,12 @@
 **Sistema de Pedidos – Café Expresso**
 
 **Sobre o Projeto**
+
 O Café Expresso é um sistema simples de autoatendimento desenvolvido com o objetivo de simular o funcionamento de uma cafeteria moderna, onde o próprio cliente pode montar seu pedido sem a necessidade de interação direta com o caixa.
 A ideia principal é tornar o processo mais rápido, organizado e com menos chances de erro, permitindo que o pedido seja feito, calculado e acompanhado de forma automática.
 
 **Objetivo**
+
 Este projeto foi desenvolvido com foco em aplicar conceitos de Programação Orientada a Objetos (POO), utilizando a linguagem Java.
 Entre os principais objetivos estão:
     • Organizar o sistema em classes bem definidas
@@ -13,6 +15,7 @@ Entre os principais objetivos estão:
     • Trabalhar com entrada de dados via teclado
 
 **Funcionalidades**
+
 O sistema permite:
     • Cadastro de produtos com nome e preço
     • Adição de múltiplos itens a um pedido
@@ -26,6 +29,7 @@ O sistema permite:
 Além disso, o sistema possui um menu interativo no console, permitindo que o usuário realize todas as operações manualmente.
 
 **Estrutura do Projeto**
+
 O sistema foi dividido em 5 classes principais:
     • Produto - representa os itens do cardápio
     • ItemPedido - relaciona produto e quantidade
@@ -34,6 +38,7 @@ O sistema foi dividido em 5 classes principais:
     • Main - responsável pela execução e interação com o usuário
 
 **Fluxo do Sistema**
+
 O funcionamento segue uma sequência lógica:
     1. O usuário adiciona produtos ao pedido
     2. O sistema calcula automaticamente o total
@@ -42,6 +47,7 @@ O funcionamento segue uma sequência lógica:
         ◦ Pago
         ◦ Em preparo
         ◦ Finalizado
+        
 O sistema impede mudanças de status fora dessa ordem, garantindo consistência no processo.
 
 **Tecnologias Utilizadas**
@@ -50,11 +56,13 @@ O sistema impede mudanças de status fora dessa ordem, garantindo consistência 
     • Scanner (entrada de dados via teclado)
 
 **Como Executar**
+
     1. Compile os arquivos:
 javac *.java
     2. Execute o sistema:
 java Main
     3. Utilize o menu exibido no console para interagir com o sistema.
+    
 **Autor**
 Edinei Pinho
 
