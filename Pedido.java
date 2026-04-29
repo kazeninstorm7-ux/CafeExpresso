@@ -2,23 +2,19 @@ import java.util.ArrayList;
 
 public class Pedido {
 
-    private ArrayList<ItemPedido> itens;
-    private StatusPedido status;
-
-    public Pedido() {
-        itens = new ArrayList<>();
-        status = StatusPedido.PENDENTE;
-    }
+    private final ArrayList<ItemPedido> itens = new ArrayList<>();
+    private StatusPedido status = StatusPedido.PENDENTE;
 
     public void adicionarItem(ItemPedido item) {
         itens.add(item);
     }
 
     public double calcularTotal() {
+
         double total = 0;
 
-        for (int i = 0; i < itens.size(); i++) {
-            total += itens.get(i).getSubtotal();
+        for (ItemPedido item : itens) {
+            total += item.getSubtotal();
         }
 
         return total;
@@ -26,19 +22,21 @@ public class Pedido {
 
     public void mudarStatus(StatusPedido novoStatus) {
 
-        // controle simples (sem exagero)
-        if (status == StatusPedido.PENDENTE && novoStatus == StatusPedido.PAGO) {
+        if (podeMudarPara(novoStatus)) {
             status = novoStatus;
-
-        } else if (status == StatusPedido.PAGO && novoStatus == StatusPedido.EM_PREPARO) {
-            status = novoStatus;
-
-        } else if (status == StatusPedido.EM_PREPARO && novoStatus == StatusPedido.FINALIZADO) {
-            status = novoStatus;
-
-        } else {
-            System.out.println("Não pode mudar de " + status + " para " + novoStatus);
+            return;
         }
+
+        throw new IllegalStateException(
+            "Não é possível mudar de " + status + " para " + novoStatus
+        );
+    }
+
+    private boolean podeMudarPara(StatusPedido novoStatus) {
+
+        return (status == StatusPedido.PENDENTE && novoStatus == StatusPedido.PAGO)
+            || (status == StatusPedido.PAGO && novoStatus == StatusPedido.EM_PREPARO)
+            || (status == StatusPedido.EM_PREPARO && novoStatus == StatusPedido.FINALIZADO);
     }
 
     public void mostrarPedido() {

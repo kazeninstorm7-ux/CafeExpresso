@@ -1,15 +1,16 @@
 public class Produto {
 
-    private String nome;
-    private double preco;
+    private final String nome;
+    private final double preco;
 
     public Produto(String nome, double preco) {
-        if (nome == null || nome.equals("")) {
-            System.out.println("Nome do produto não pode ser vazio");
+
+        if (nome == null || nome.trim().isEmpty()) {
+            throw new IllegalArgumentException("Nome do produto não pode ser vazio");
         }
 
         if (preco < 0) {
-            System.out.println("Preço inválido");
+            throw new IllegalArgumentException("Preço não pode ser negativo");
         }
 
         this.nome = nome;
