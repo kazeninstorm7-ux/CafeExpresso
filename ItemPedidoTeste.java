@@ -1,8 +1,10 @@
 @Test
-void deveAjustarQuantidadeMenorQueZero() {
-    Produto p = new Produto("Café", 10.0);
+void testeQuantidade() {
+    Produto produto = new Produto("Cafe", 10.0);
 
-    ItemPedido item = new ItemPedido(p, 0);
+    ItemPedido item = new ItemPedido(produto, 0);
 
-    assertEquals(1, item.getQuantidade());
+    int resultado = item.getQuantidade();
+
+    assertEquals(1, resultado);
 }
