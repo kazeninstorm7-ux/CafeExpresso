@@ -1,25 +1,22 @@
 public class ItemPedido {
 
-    private final Produto produto;
-    private final int quantidade;
+    Produto produto;
+    int quantidade;
 
     public ItemPedido(Produto produto, int quantidade) {
 
         this.produto = produto;
-        this.quantidade = corrigirQuantidadeSeNecessario(quantidade);
-    }
 
-    private int corrigirQuantidadeSeNecessario(int quantidadeInformada) {
-
-        if (quantidadeInformada <= 0) {
-            return 1;
+        if (quantidade <= 0) {
+            this.quantidade = 1;
+        } else {
+            this.quantidade = quantidade;
         }
-
-        return quantidadeInformada;
     }
 
     public double getSubtotal() {
-        return produto.getPreco() * quantidade;
+        double subtotal = produto.getPreco() * quantidade;
+        return subtotal;
     }
 
     public Produto getProduto() {
