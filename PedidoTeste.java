@@ -1,6 +1,6 @@
 @Test
 void teste() {
-
+// teste
     Pedido p = new Pedido();
 
     Produto prod = new Produto("Cafe", 10.0);
