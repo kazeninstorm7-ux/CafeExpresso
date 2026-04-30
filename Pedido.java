@@ -2,8 +2,8 @@ import java.util.ArrayList;
 
 public class Pedido {
 
-    private final ArrayList<ItemPedido> itens = new ArrayList<>();
-    private StatusPedido status = StatusPedido.PENDENTE;
+    ArrayList itens = new ArrayList(); // sem generics
+    String status = "PENDENTE";
 
     public void adicionarItem(ItemPedido item) {
         itens.add(item);
@@ -13,45 +13,43 @@ public class Pedido {
 
         double total = 0;
 
-        for (ItemPedido item : itens) {
-            total += item.getSubtotal();
+        for (int i = 0; i < itens.size(); i++) {
+
+            ItemPedido item = (ItemPedido) itens.get(i); // cast manual
+
+            total = total + item.getSubtotal();
         }
 
         return total;
     }
 
-    public void mudarStatus(StatusPedido novoStatus) {
+    public void mudarStatus(String novoStatus) {
 
-        if (podeMudarPara(novoStatus)) {
+        if (status.equals("PENDENTE") && novoStatus.equals("PAGO")) {
             status = novoStatus;
-            return;
+        } else if (status.equals("PAGO") && novoStatus.equals("EM_PREPARO")) {
+            status = novoStatus;
+        } else if (status.equals("EM_PREPARO") && novoStatus.equals("FINALIZADO")) {
+            status = novoStatus;
+        } else {
+            System.out.println("Nao pode mudar status");
         }
-
-        throw new IllegalStateException(
-            "Não é possível mudar de " + status + " para " + novoStatus
-        );
-    }
-
-    private boolean podeMudarPara(StatusPedido novoStatus) {
-
-        return (status == StatusPedido.PENDENTE && novoStatus == StatusPedido.PAGO)
-            || (status == StatusPedido.PAGO && novoStatus == StatusPedido.EM_PREPARO)
-            || (status == StatusPedido.EM_PREPARO && novoStatus == StatusPedido.FINALIZADO);
     }
 
     public void mostrarPedido() {
 
-        System.out.println("---- Pedido ----");
+        System.out.println("Pedido");
 
-        for (ItemPedido item : itens) {
-            System.out.println(
-                item.getProduto().getNome() +
-                " | qtd: " + item.getQuantidade() +
-                " | subtotal: R$ " + item.getSubtotal()
-            );
+        for (int i = 0; i < itens.size(); i++) {
+
+            ItemPedido item = (ItemPedido) itens.get(i);
+
+            System.out.println("Nome: " + item.getProduto().getNome());
+            System.out.println("Qtd: " + item.getQuantidade());
+            System.out.println("Valor: " + item.getSubtotal());
         }
 
-        System.out.println("Total: R$ " + calcularTotal());
+        System.out.println("Total: " + calcularTotal());
         System.out.println("Status: " + status);
     }
 }

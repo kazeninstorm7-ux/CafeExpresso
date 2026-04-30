@@ -1,9 +1,13 @@
 @Test
-void deveCalcularTotalCorretamente() {
-    Pedido pedido = new Pedido();
+void teste() {
 
-    Produto p = new Produto("Café", 10.0);
-    pedido.adicionarItem(new ItemPedido(p, 2));
+    Pedido p = new Pedido();
 
-    assertEquals(20.0, pedido.calcularTotal());
+    Produto prod = new Produto("Cafe", 10.0);
+
+    p.adicionarItem(new ItemPedido(prod, 2));
+
+    double r = p.calcularTotal();
+
+    assertEquals(20.0, r);
 }
