@@ -3,18 +3,19 @@ package com.cafeexpresso;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 
-public class ProdutoTeste {
+public class PedidoTeste {
 
-@Test
-void teste() {
-// teste
-    Pedido p = new Pedido();
+    @Test
+    void teste() {
+        // teste
+        Pedido p = new Pedido();
 
-    Produto prod = new Produto("Cafe", 10.0);
+        Produto prod = new Produto("Cafe", 10.0);
 
-    p.adicionarItem(new ItemPedido(prod, 2));
+        p.adicionarItem(new ItemPedido(prod, 2));
 
-    double r = p.calcularTotal();
+        double r = p.calcularTotal();
 
-    assertEquals(20.0, r);
+        Assertions.assertEquals(20.0, r);
+    }
 }

@@ -5,10 +5,11 @@ import org.junit.jupiter.api.Assertions;
 
 public class ProdutoTeste {
 
-@Test
-void teste() {
+    @Test
+    void teste() {
 
-    Produto p = new Produto("", 10.0);
+        Produto p = new Produto("", 10.0);
 
-    assertEquals("", p.getNome());
+        Assertions.assertEquals("", p.getNome());
+    }
 }

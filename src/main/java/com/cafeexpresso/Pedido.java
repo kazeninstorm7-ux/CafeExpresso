@@ -1,12 +1,11 @@
 package com.cafeexpresso;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Pedido {
 
-    ArrayList itens = new ArrayList(); // sem generics
-    String status = "PENDENTE";
+    ArrayList<ItemPedido> itens = new ArrayList<>(); // agora com generics
+    StatusPedido status = StatusPedido.PENDENTE;
 
     public void adicionarItem(ItemPedido item) {
         itens.add(item);
@@ -18,7 +17,7 @@ public class Pedido {
 
         for (int i = 0; i < itens.size(); i++) {
 
-            ItemPedido item = (ItemPedido) itens.get(i); // cast manual
+            ItemPedido item = itens.get(i); // sem cast
 
             total = total + item.getSubtotal();
         }
@@ -26,17 +25,9 @@ public class Pedido {
         return total;
     }
 
-    public void mudarStatus(String novoStatus) {
+    public void mudarStatus(StatusPedido novoStatus) {
 
-        if (status.equals("PENDENTE") && novoStatus.equals("PAGO")) {
-            status = novoStatus;
-        } else if (status.equals("PAGO") && novoStatus.equals("EM_PREPARO")) {
-            status = novoStatus;
-        } else if (status.equals("EM_PREPARO") && novoStatus.equals("FINALIZADO")) {
-            status = novoStatus;
-        } else {
-            System.out.println("Nao pode mudar status");
-        }
+        status = novoStatus; // simplificado
     }
 
     public void mostrarPedido() {
@@ -45,7 +36,7 @@ public class Pedido {
 
         for (int i = 0; i < itens.size(); i++) {
 
-            ItemPedido item = (ItemPedido) itens.get(i);
+            ItemPedido item = itens.get(i);
 
             System.out.println("Nome: " + item.getProduto().getNome());
             System.out.println("Qtd: " + item.getQuantidade());
@@ -53,6 +44,6 @@ public class Pedido {
         }
 
         System.out.println("Total: " + calcularTotal());
-        System.out.println("Status: " + status);
+        System.out.println("Status: " + status.name());
     }
 }
