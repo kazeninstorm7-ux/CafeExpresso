@@ -2,26 +2,28 @@ Café Expresso
 
 Sobre o projeto
 
-O Café Expresso é um sistema simples de pedidos de uma cafeteria desenvolvido em Java.
-Ele simula o funcionamento básico de um sistema de autoatendimento, onde o usuário pode montar seu pedido, adicionar produtos e acompanhar o valor total.
-O objetivo do projeto é praticar conceitos de Programação Orientada a Objetos (POO).
+O Café Expresso é um sistema simples de pedidos de uma cafeteria feito em Java.
+Ele simula um sistema onde o usuário pode montar um pedido, adicionando produtos e definindo quantidades, e o sistema calcula o valor total automaticamente.
+Também é possível acompanhar o status do pedido durante o processo.
+
+Objetivo
+
+Este projeto foi desenvolvido para praticar os conceitos básicos de Programação Orientada a Objetos (POO) em Java.
 
 Funcionalidades
-
     • Adicionar produtos ao pedido 
-    • Definir quantidade de itens 
-    • Calcular o valor total automaticamente 
+    • Definir quantidade de cada produto 
+    • Calcular o valor total do pedido 
     • Alterar o status do pedido 
-    • Exibir os itens do pedido no console 
+    • Mostrar os itens do pedido no console 
+
 Estrutura do projeto
 
-O sistema é dividido nas seguintes classes:
-
-    • Produto.java → representa os produtos disponíveis 
-    • ItemPedido.java → representa um produto dentro do pedido com quantidade 
+    • Produto.java → representa os produtos da cafeteria 
+    • ItemPedido.java → representa um produto com quantidade 
     • Pedido.java → controla os itens e o valor total 
     • StatusPedido.java → define os status do pedido 
-    • Main.java → menu e interação com o usuário 
+    • Main.java → menu e execução do sistema 
     • Testes → verificam o funcionamento das classes 
 
 Tecnologias utilizadas
