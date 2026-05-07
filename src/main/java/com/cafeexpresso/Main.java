@@ -1,3 +1,5 @@
+package com.cafeexpresso;
+
 import java.util.Scanner;
 
 public class Main {

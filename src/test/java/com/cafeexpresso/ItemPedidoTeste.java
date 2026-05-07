@@ -1,3 +1,10 @@
+package com.cafeexpresso;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Assertions;
+
+public class ProdutoTeste {
+
 @Test
 void teste() {
 

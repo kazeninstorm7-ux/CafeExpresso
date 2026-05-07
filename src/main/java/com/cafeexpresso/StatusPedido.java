@@ -1,3 +1,5 @@
+package com.cafeexpresso;
+
 public enum StatusPedido {
 
     PENDENTE,

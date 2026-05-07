@@ -1,3 +1,5 @@
+package com.cafeexpresso;
+
 public class ItemPedido {
 
     Produto produto;
